@@ -14,7 +14,7 @@ if ($_control == "" || in_array($_control, explode(",", FOXPHP_FORBIDDEN_TYPE)))
 
 //加载全局函数库
 include(FOXPHP_PATH . "/common/functions.php");
-require(FOXPHP_PATH . "/MVC/Control/_Master.php");
+require(FOXPHP_PATH . "/MVC/Control/ctlBase.php");
 
 $_control_path = FOXPHP_PATH . "/MVC/Control/" . $_control . ".php";
 if (!file_exists($_control_path)) exit('control is not exists');   //转到404

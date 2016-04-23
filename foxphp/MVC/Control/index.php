@@ -1,5 +1,5 @@
 <?php
-class index extends _Master
+class index extends ctlBase
 {
     function index()
     {

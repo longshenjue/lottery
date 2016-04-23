@@ -1,6 +1,6 @@
 <?php
 
-abstract class _Master
+class ctlBase
 {
     var $_view = "index";//模版名称
     var $_vars = array();//变量保存器
