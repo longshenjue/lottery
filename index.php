@@ -8,7 +8,7 @@
 include("common.php");
 header("Content-type:text/html;charset=utf-8");
 $_control = isset($_GET["control"]) ? $_GET["control"] : "";
-
+$_control = 'ctl' . ucwords($_control);
 $_action = isset($_GET["action"]) ? $_GET["action"] : "";
 if ($_control == "" || in_array($_control, explode(",", FOXPHP_FORBIDDEN_TYPE))) exit('url错误');
 
@@ -26,6 +26,8 @@ $_init_control = new $_control();
 
 if (method_exists($_init_control, $_action)) {
     $_init_control->$_action();//执行类方法
+} else {
+    $_init_control->index();//执行index方法
 }
 
 $_init_control->run();

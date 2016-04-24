@@ -7,8 +7,6 @@ class index extends ctlBase
     }
     function showindex()
     {
-        //include(FOXPHP_PATH . "/MVC/View/default/index.php");
-        //var_dump($_GET);
         $this->setView("index");
         $this->setVar("title", "网页标题是？！<br>");
     }

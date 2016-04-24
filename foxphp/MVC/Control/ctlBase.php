@@ -2,8 +2,8 @@
 
 class ctlBase
 {
-    var $_view = "index";//模版名称
-    var $_vars = array();//变量保存器
+    public $_view = "index";//模版名称
+    public $_vars = array();//变量保存器
     function setView($viewName)
     {
         $this->_view = $viewName;
