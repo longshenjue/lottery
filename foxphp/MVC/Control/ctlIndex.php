@@ -1,14 +1,15 @@
 <?php
-class index extends ctlBase
+class ctlIndex extends ctlBase
 {
     function index()
     {
-
+        $this->setView("index");
+        $this->setVar("title", "卡片收集");
     }
     function showindex()
     {
-        $this->setView("index");
-        $this->setVar("title", "网页标题是？！<br>");
+        $this->setVar("title", "卡片收集");
+        $this->setView("install");
     }
 
     function showuser()

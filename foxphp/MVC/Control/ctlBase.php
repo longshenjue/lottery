@@ -2,7 +2,7 @@
 
 class ctlBase
 {
-    public $_view = "index";//模版名称
+    public $_view = "";//模版名称
     public $_vars = array();//变量保存器
     function setView($viewName)
     {
@@ -11,7 +11,30 @@ class ctlBase
 
     function getView()
     {
-        return FOXPHP_PATH . "/MVC/View/default/" . $this->_view . FOXPHP_VIEWEXT;
+        if ($this->_view != "") {
+            return FOXPHP_PATH . "/MVC/View/default/" . $this->_view . FOXPHP_VIEWEXT;
+        } else {
+            return '';
+        }
+    }
+
+    function getHeader()
+    {
+        if ($this->_view != "") {
+            return FOXPHP_PATH . "/MVC/View/default/" . FOXPHP_VIEWHEADER . FOXPHP_VIEWEXT;
+        } else {
+            return '';
+        }
+
+    }
+
+    function getFooter()
+    {
+        if ($this->_view != "") {
+            return FOXPHP_PATH . "/MVC/View/default/" . FOXPHP_VIEWFOOTER . FOXPHP_VIEWEXT;
+        } else {
+            return '';
+        }
     }
 
     function setVar($varName, $varValue)
@@ -20,15 +43,18 @@ class ctlBase
     }
     function run()//执行Control 加载模版和变量解包
     {
-        //解包我们的变量
+        //解包变量
         extract($this->_vars);
         //加载头部模版
-        include(FOXPHP_PATH . "/MVC/View/default/" . FOXPHP_VIEWHEADER . FOXPHP_VIEWEXT);
+        $header = $this->getHeader();
+        if ($header != '') include($header);
 
         //记载模版
-        include($this->getView());
+        $view = $this->getView();
+        if ($header != '') include($view);
 
         //加载尾部模版
-        include(FOXPHP_PATH . "/MVC/View/default/" . FOXPHP_VIEWFOOTER . FOXPHP_VIEWEXT);
+        $footer = $this->getFooter();
+        if ($footer != '') include($footer);
     }
 }

@@ -31,3 +31,22 @@ function load_model($modelName)
     return new $modelName();
 }
 
+function response($code, $result = null)
+{
+    $o = new \stdClass();
+    $o->code = $code;
+    $o->result = $result;
+    if ($code == 100) {
+        $o->success = true;
+    } else {
+        $o->success = false;
+    }
+    $s = json_encode($o,JSON_UNESCAPED_UNICODE);
+    if (isset($_GET['callback'])) {
+        echo trim($_GET['callback']) . "($s)";
+    } else {
+        echo $s;
+    }
+    return $o->success;
+}
+
