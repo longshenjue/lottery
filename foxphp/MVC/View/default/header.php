@@ -1,9 +1,9 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: yuting
- * Date: 2015/8/27
- * Time: 10:51
- */
-?>
-<div>头部</div>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">

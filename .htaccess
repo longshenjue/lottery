@@ -1,6 +1,12 @@
 <ifmodule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{QUERY_STRING} ^(.*)
+
+RewriteRule ^css/(.*)    /lottery/foxphp/MVC/View/default/css/$1
+RewriteRule ^js/(.*)    /lottery/foxphp/MVC/View/default/js/$1
+RewriteRule ^fonts/(.*)    /lottery/foxphp/MVC/View/default/fonts/$1
+RewriteRule ^images/(.*)    /lottery/foxphp/MVC/View/default/images/$1
+
 RewriteRule ^([a-z]{2,10})$    /lottery/index.php?control=$1&%1
 
 RewriteCond %{QUERY_STRING} ^(.*)

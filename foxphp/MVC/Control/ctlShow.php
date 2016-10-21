@@ -9,7 +9,6 @@ class ctlShow extends ctlBase
 {
     function index()
     {
-        phpinfo();exit();
         $this->setView('show');
         $gameInfo = array();
         $gameInfo['gameName'] = 'lottery';
